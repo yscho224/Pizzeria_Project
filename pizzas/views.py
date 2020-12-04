@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Pizza
+from .models import Pizza, Topping
 # Create your views here.
 
 # When a URL request matches the pattern we just defined, 
@@ -16,3 +16,12 @@ def pizzas(request):
     context = {'pizzas' : pizzas}
     #load up the page to view
     return render(request, 'Pizzas/pizzas.html', context)
+
+def pizza(request, pizza_id):
+    pizza = Pizza.objects.get(id = pizza_id)
+    toppings = pizza.topping_set.order_by('-date_added')
+
+    context = {'pizza': pizza, 'toppings':toppings}
+
+    return render(request, 'Pizzas/pizza.html', context)
+

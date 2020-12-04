@@ -12,14 +12,14 @@ class Pizza(models.Model):
         return self.name
 
 class Topping(models.Model):
-    '''Specific types of pizzas'''
+    '''Specific types of pizzas and its toppings'''
     pizza = models.ForeignKey(Pizza, on_delete = models.CASCADE)
-    name = models.TextField(max_length = 200)
+    name = models.TextField()
     date_added = models.DateTimeField(auto_now_add = True)
     
 
     class Meta:
-        verbose_name_plural = "Pizza Toppings"
+        verbose_name_plural = "toppings"
 
     def __str__(self):
         """Return a string representation of the topping"""
