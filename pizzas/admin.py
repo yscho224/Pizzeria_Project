@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from pizzas.models import Pizza, Toppings
+from pizzas.models import Pizza, Topping
 # Register your models here.
 
 admin.site.register(Pizza)
-admin.site.register(Toppings)
+admin.site.register(Topping)
