@@ -6,14 +6,14 @@ django.setup()
 
 
 
-from Pizzas.models import Pizza
+from Pizzas.models import Pizza, Topping
 
 pizzas = Pizza.objects.all()
 
 for pizza in pizzas:
     print("Pizza ID:", pizza.id, " Pizza:", pizza)
 
+toppings = t.topping_set.all()
+for topping in toppings:
+    print(topping)
 
-t = Pizza.objects.get(id = 3)
-print(t.name)
-print(t.date_added)

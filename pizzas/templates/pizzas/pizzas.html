@@ -10,9 +10,13 @@
 
 
         <li> <a href = "{% url 'Pizzas:pizza' pizza.id %}">{{ pizza }} </li>
+        </li>
+
         {% empty %}
-        <li> No pizzas have been added yet! </li>
+            <li> No pizzas have been added yet! </li>
         {% endfor %}
     </ul>
-
+    <a href="{% url 'Pizzas:new_pizza' %}">Add a new pizza</a>
+    
 {% endblock content %}
+

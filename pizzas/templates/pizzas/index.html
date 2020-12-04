@@ -1,10 +1,15 @@
 {% extends "Pizzas/base.html" %}
 
+{% block page_header %}
+ <div class="jumbotron">
+    <h1 class="display-3">We serve you good.</h1>
+    <p class="lead">Better ingredients, Better Pizza! Welcome to Pizzeria!</p>
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+        role="button">Register &raquo;</a>
+ </div>
 
-{% block content %}
+ <p> 
+    
+ </p> 
 
-    <p> 
-    Better ingredients, Better Pizza! Welcome to Pizzeria! 
-    </p> 
-
-{% endblock content %}
+{% endblock page_header %}

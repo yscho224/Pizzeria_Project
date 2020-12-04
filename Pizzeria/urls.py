@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls), #includes the module admin.site.urls, which defines all the URLs that can be
                                     #requested from the admin site.
     path('', include('Pizzas.urls')),
+    path('users/', include('users.urls')),   
 ]

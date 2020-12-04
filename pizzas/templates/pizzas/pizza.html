@@ -1,6 +1,6 @@
 {% extends "Pizzas/base.html" %}
 
-    {% block content %}
+{% block content %}
 
     <p> Pizza: {{ pizza }} </p>
 
@@ -10,18 +10,42 @@
 
 
         <li> 
-            <p>{{ topping.date_added }} </p>
-            <p>{{ topping.name }} </p> 
-        
+            
+            <p>{{ topping.name|linebreaks }} </p> 
+            <p>
+                <a href="{% url 'pizzas:edit_topping' topping.id %}">Edit topping</a>
+            </p>
         </li> 
 
         {% empty %}
 
-        <li> Toppings are customized for this pizza. </li>
+        <li> No toppings are added yet. </li>
+
+            {% endfor %}
+
+    </ul>
+    <p>
+        <a href="{% url 'Pizzas:new_topping' pizza.id %}">Add a new topping</a>
+    </p>
+    <ul>
+        
+        {% for comment in comments %}
+        <li>
+             <p> {{ comment.name|linebreaks }}</p>
+        </li>
+        {% empty %}
+
+            <li> No comments. Please comment!</li>
 
         {% endfor %}
 
+        </li>
+
     </ul>
+    
+    <p>
+        <a href="{% url 'Pizzas:new_comment' pizza.id %}">Add a new comment</a>
+    </p>
+    
+{% endblock content %}
 
-
-    {% endblock content %}
