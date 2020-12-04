@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+#Users request pages by entering URLs into a browser and clicking links, so
+#we’ll need to decide what URLs are needed. The home page URL is first:
+#it’s the base URL people use to access the project.
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
+#edit the default urls.py file in the pizzas folder
+# the urlpatterns variable includes sets of URLs from 
+# the apps in the project.
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), #includes the module admin.site.urls, which defines all the URLs that can be
+                                    #requested from the admin site.
+    path('', include('Pizzas.urls')),
 ]

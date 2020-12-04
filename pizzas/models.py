@@ -9,18 +9,19 @@ class Pizza(models.Model):
 
     def __str__(self):
         """returns back whatever it is in string method, string representation of model"""
-        return self.text
+        return self.name
 
 class Topping(models.Model):
     '''Specific types of pizzas'''
     pizza = models.ForeignKey(Pizza, on_delete = models.CASCADE)
     name = models.TextField(max_length = 200)
     date_added = models.DateTimeField(auto_now_add = True)
+    
 
     class Meta:
         verbose_name_plural = "Pizza Toppings"
 
     def __str__(self):
         """Return a string representation of the topping"""
-        return self.name
+        return f"{self.name[:50]}..."
     
