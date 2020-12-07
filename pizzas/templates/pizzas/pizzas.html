@@ -11,7 +11,7 @@
 
         <li> <a href = "{% url 'Pizzas:pizza' pizza.id %}">{{ pizza }} </li>
         </li>
-
+    
         {% empty %}
             <li> No pizzas have been added yet! </li>
         {% endfor %}
