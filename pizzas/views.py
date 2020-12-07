@@ -11,7 +11,7 @@ from django.http import Http404
 # but before that you need to add it to url.file creating a url.
 def index(request):
     """The home page for Pizzeria."""
-    return render(request, 'pizzas/index.html')
+    return render(request, 'Pizzas/index.html')
 @login_required
 def pizzas(request):
     pizzas = Pizza.objects.order_by('date_added')
@@ -67,8 +67,8 @@ def edit_topping(request, topping_id):
     return render(request, 'Pizzas/edit_.html', context)
 
 @login_required
-def new_comment(request, pizza_id):
-    pizza = Pizza.objects.get(id=pizza_id)
+def new_comment(request, p_id):
+    pizza = Pizza.objects.get(id=p_id)
 
     if request.method != 'POST':
         form = CommentForm()
@@ -81,7 +81,7 @@ def new_comment(request, pizza_id):
             new_comment.pizza = pizza
             new_comment.owner = request.user
             new_comment.save()
-            return redirect('Pizzas:pizza',pizza_id=pizza_id)
+            return redirect('Pizzas:pizza',pizza_id=p_id)
 
     context = {'form':form, 'pizza':pizza}
     return render(request, 'Pizzas/new_comment.html', context)

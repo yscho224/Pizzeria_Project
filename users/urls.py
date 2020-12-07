@@ -1,7 +1,8 @@
 from django.urls import path, include
 from . import views
 
-app_name = 'user'
+app_name = 'users'
+
 '''
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
